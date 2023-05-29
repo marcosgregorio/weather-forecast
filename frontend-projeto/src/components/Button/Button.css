@@ -1,0 +1,14 @@
+.botao button {
+    background-color: var(--azul-secundario);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 0em 0;
+}
+
+.botao:hover button {
+    color:#95FFD4;
+}

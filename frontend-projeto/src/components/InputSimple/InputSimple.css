@@ -1,0 +1,23 @@
+.input {
+    margin: 24px 0;
+}
+
+.input label {
+    display:block;
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.input input {
+    background-color: white;
+    box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    border: none;
+    font-size: 24px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+.input {
+
+}

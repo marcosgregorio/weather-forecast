@@ -1,5 +1,12 @@
+:root {
+  --branco: white;
+  --azul-claro:#A1F2FF;
+  --azul-principal:#40E5FF;
+  --azul-secundario:#2DA1B3;
+}
 body {
   margin: 0;
+  width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
