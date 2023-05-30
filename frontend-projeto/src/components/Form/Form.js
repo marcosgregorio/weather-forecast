@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from 'react';
 import InputSimple from '../InputSimple/InputSimple';
 import './Form.css'
@@ -10,9 +11,22 @@ const Form = () => {
 
     const buscar = (evento) => {
         evento.preventDefault();
-        console.log('oi')
-        fetch("http://api.weatherstack.com/current?access_key=b4f9dd2f3e54c4127a3618aa846dbdd0&query=New York")
-            .then(res => res.json()).then(console.log)
+        const url = "http://api.weatherstack.com/forecast"
+        const params = {
+            access_key: '54c7a3bcaccb0a761d12f9899e2c71d9',
+            query: 'New York'
+        }
+        const regexCep = '\d{3}[.\s]?\d{3}[.\s]?\d{3}[-.\s]?\d{2}'
+
+        console.log(url, params)
+        axios.get(url, { params })
+            .then(response => {
+                const apiResponse = response.data;
+                console.log(apiResponse);
+                // console.log(`Current temperature in ${apiResponse.location.name} is ${apiResponse.current.temperature}℃`);
+            }).catch(error => {
+                console.log(error);
+            }).finally(() => console.log('finalizado'));
     }
 
     return (
@@ -20,15 +34,15 @@ const Form = () => {
             <form className='formulario' onSubmit={buscar}>
                 <h2> Previsão do tempo </h2>
                 <div className='formulario__input'>
-                    <InputSimple 
-                        value={cep} 
+                    <InputSimple
+                        value={cep}
                         aoAlterado={value => setCep(value)}
                         placeholder={"Digite seu CEP"}
                         label={"CEP:"}
                         obrigatorio={false}
                     />
-                    <InputSimple 
-                        value={cidade} 
+                    <InputSimple
+                        value={cidade}
                         aoAlterado={value => setCidade(value)}
                         placeholder={"Digite sua cidade"}
                         label={"Cidade:"}

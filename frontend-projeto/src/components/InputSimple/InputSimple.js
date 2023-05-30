@@ -1,4 +1,5 @@
 import './InputSimple.css'
+
 const InputSimple = (props) => {
 
     const aoDigitado = (evento) => {
