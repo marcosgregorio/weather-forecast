@@ -18,3 +18,9 @@
     width: 100%;
     justify-content: space-around;
 }
+
+@media screen and (max-width:1500px){
+    .formulario__input {
+        flex-direction: column;
+    }   
+}

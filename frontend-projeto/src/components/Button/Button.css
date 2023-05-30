@@ -1,3 +1,8 @@
+.botao {
+    align-self: end;
+    margin-bottom: 32px;
+    margin-left: 12px;
+}
 .botao button {
     background-color: var(--azul-secundario);
     border-radius: 8px;
@@ -5,6 +10,7 @@
     font-size: 1em;
     border: none;
     cursor: pointer;
+    padding: 10px;
     color: white;
     margin: 0em 0;
 }
@@ -12,3 +18,4 @@
 .botao:hover button {
     color:#95FFD4;
 }
+
