@@ -1,0 +1,9 @@
+.section__tabela {
+    display: flex;
+    justify-content: center;
+    margin: 120px 0;
+}
+
+.tabela {
+    width: 80%;
+}

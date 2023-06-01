@@ -1,0 +1,34 @@
+.footer {
+    display: flex;
+    background-image: url('../../../public/assets/fundo.png');
+    background-repeat: no-repeat;
+    padding: 80px;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--azul-claro);
+}
+
+.footer__redes {
+    display: flex;
+}
+
+.footer__logo {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__redes__lista {
+    display: flex;
+    list-style-type: none;
+   
+}
+
+.footer__redes__lista li {
+    margin-right: 10px;
+}
+
+.footer__rede {
+    width: 30px;
+    height: 30px;
+}

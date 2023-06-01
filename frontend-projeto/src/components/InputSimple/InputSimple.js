@@ -11,7 +11,9 @@ const InputSimple = (props) => {
             <label>
                 {props.label}
             </label>
-            <input 
+            <input
+                id={props.id}
+                maxLength={props.maxLength}
                 value={props.value} 
                 required={props.obrigatorio}
                 placeholder={props.placeholder + '...'}

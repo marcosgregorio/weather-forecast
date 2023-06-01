@@ -1,0 +1,58 @@
+.section {
+    display: flex;
+    justify-content: center;
+    margin: 80px 0;
+}
+
+.section form {
+    min-width: 50%;
+    max-width: 80%;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    padding: 36px 64px;
+    box-shadow: 10px 10
+}
+
+.section h2 {
+    margin-left: 10%;
+}
+
+.formulario__input {
+    display: flex;
+    justify-content: space-around;
+}
+
+.field {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.botao {
+    align-self: end;
+    margin-bottom: 32px;
+    margin-left: 12px;
+}
+
+.botao button {
+    background-color: var(--azul-secundario);
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    margin: 0em 0;
+}
+.botao button:disabled{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+@media screen and (max-width:800px){
+    .formulario__input {
+        flex-direction: column;
+    }
+}

@@ -3,6 +3,7 @@
     margin-bottom: 32px;
     margin-left: 12px;
 }
+
 .botao button {
     background-color: var(--azul-secundario);
     border-radius: 8px;
@@ -13,6 +14,9 @@
     padding: 10px;
     color: white;
     margin: 0em 0;
+}
+.botao:disabled button {
+    display: none;
 }
 
 .botao:hover button {
