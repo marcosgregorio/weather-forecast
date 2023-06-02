@@ -5,11 +5,16 @@ import Schema from "../../Schema";
 
 const Formulario = (props) => {
     const climas = {
-        "Clear sky" : 'https://ssl.gstatic.com/onebox/weather/64/sunny.png',
-        "Partly cloudy" : 'https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png',
-        "Light rain" : "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png",
-        "Moderate rain" : "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png",
-        "Heavy rain" : "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png"
+        "Clear sky": 'https://ssl.gstatic.com/onebox/weather/64/sunny.png',
+        "Partly cloudy": 'https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png',
+        "Light rain": "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png",
+        "Moderate rain": "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png",
+        "Heavy rain": "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png"
+    }
+
+    const ehDia = {
+        "yes": "https://github.com/marcosgregorio/weather-forecast/blob/c42eb7b9a42eb4971fa7a8f42b586145339c0158/frontend-projeto/public/assets/sun.png",
+        "no": "https://cdn-icons-png.flaticon.com/128/581/581601.png"
     }
 
     const buscarTemperatura = (values, actions) => {
@@ -21,18 +26,27 @@ const Formulario = (props) => {
         fetch(url)
             .then((responseApi) => responseApi.json())
             .then((json) => {
-                let iconeClima = decideIconeClima(json.current?.weather_descriptions[0])
+                const horario = formataDataHora(json.location.localtime)
+                const iconeClima = decideIconeClima(json.current?.weather_descriptions[0])
                 const linhaTabela = {
                     localidade: json.location.name,
                     iconeClima: iconeClima,
                     temperatura: json.current.temperature + "°C",
-                    velocidadeVento:json.current.wind_speed,
-                    horario: json.location.localtime,
-                    ehDia: json.current.is_day,
+                    velocidadeVento: json.current.wind_speed,
+                    horario: horario,
+                    ehDia: ehDia[json.current.is_day],
                 }
 
                 props.adicionarTemperaturaTabela(linhaTabela)
             })
+    }
+
+    const formataDataHora = (dataIso) => {
+        let dataAux = dataIso.split(" ")
+        let dataDia = dataAux[0]
+        let horario = dataAux[1]
+        dataDia = dataDia.split("-").reverse().join('/')
+        return `${dataDia} ${horario}`
     }
 
     const decideIconeClima = (keyClima) => {

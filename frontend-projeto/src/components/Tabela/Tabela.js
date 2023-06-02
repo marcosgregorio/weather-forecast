@@ -2,7 +2,7 @@ import DataTable from "react-data-table-component"
 import React, { useState, useEffect } from 'react';
 import './Tabela.css'
 const Tabela = (props) => {
-    
+
     const columns = [
         {
             name: 'Condições Climáticas',
@@ -24,7 +24,9 @@ const Tabela = (props) => {
         },
         {
             name: 'Hora do dia',
-            cell: row => <img src="https://github.com/marcosgregorio/weather-forecast/blob/main/frontend-projeto/public/assets/sun.png" alt="Ícone" />,
+            cell: row => {
+                return <div className="horario"> {row.horario} <img className="icone-eh-dia" src="https://cdn-icons-png.flaticon.com/128/581/581601.png" alt="Ícone" /></div>
+            },
             sortable: true
         },
     ];
@@ -38,22 +40,6 @@ const Tabela = (props) => {
             >
             </DataTable>
         </section>
-        // <table>
-        //     <thead>
-        //         <tr>
-        //             <th> Região </th>
-        //             <th> Temperatura </th>
-        //             <th> Precipitação </th>
-        //         </tr>
-        //     </thead>
-        //     <tbody>
-        //         <tr>
-        //             <td>asdasdsa</td>
-        //             <td>asdasdsa</td>
-        //             <td>asdasdsa</td>
-        //         </tr>
-        //     </tbody>
-        // </table>
     )
 
 }
