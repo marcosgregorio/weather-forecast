@@ -10,7 +10,6 @@ Uma aplicação simples usando React, Laravel e um banco Sqlite.
 | :sparkles: Nome        | 
 | :label: Tecnologias | 
 | :rocket: URL         | app/
-| 🖥 Curso    | 
 
 
 ## 
