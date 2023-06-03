@@ -59,7 +59,7 @@ o PHP nas variaveis de ambiente (caso seu sistema seja windows).
   php artisan migrate
   ```
 
-### ⚠️ caso tenha problemas de conexão com o banco SQLite siga os seguintes passos:
+### ⚠️ caso tenha problemas de conexão com o banco Sqlite siga os seguintes passos:
 
   * Copie o meu .env dentro da pasta ```arquivos-backup```;
   * Deixa todas as variaveis DB_ comentadas exceto a DB_CONNECTION.
