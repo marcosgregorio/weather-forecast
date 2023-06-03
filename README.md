@@ -1,8 +1,7 @@
 
 <header style='display:flex'>
-  <h1>
-     <img style='width:50px; height:50px; ' src='https://github.com/marcosgregorio/weather-forecast/blob/main/frontend-projeto/public/assets/weather.png?raw=true' />
-    Weather Forecast </h1> 
+<img style='width:50px; height:50px; ' src='https://github.com/marcosgregorio/weather-forecast/blob/main/frontend-projeto/public/assets/weather.png?raw=true' />
+  <h1> Weather Forecast </h1> 
 </header>
 <div style='display:flex'>
   <img src='https://img.shields.io/badge/NPM-v9.5.1-yellow' />
