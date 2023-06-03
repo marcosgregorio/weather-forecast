@@ -72,4 +72,5 @@ o PHP nas variaveis de ambiente (caso seu sistema seja windows).
 
 ## Condições climáticas
 É possivel procurar as condições climáticas pela cidade usando apena o input de cidade e clicando em buscar
-
+blob:
+![Nome da descrição da imagem](https://web.whatsapp.com/c973d801-4771-4b2a-b234-3da6b94bc0ca)
