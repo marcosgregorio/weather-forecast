@@ -22,7 +22,21 @@ Uma aplicação simples usando React, Laravel e um banco Sqlite.
 | :sparkles: Nome        | Weather Forecast
 | :label: Tecnologias | React, Laravel, SweetAlert
 
-# Preparação do ambiente
+### ⚙️ Configurando o projeto
+Para subir a aplicação front-end rodar o comando abaixo(lembre-se de utilizar a versão correta do NPM).
+```bash
+npm install
+```
+### ▶️ Dentro do diretorio do projeto você inicia aplicação com
+```bash
+npm start
+```
+### 📚 Bibliotecas
+* [Yup](https://www.npmjs.com/package/yup)
+* [react-modal](https://www.npmjs.com/package/react-modal)
+* [react-data-table-component](https://react-data-table-component.netlify.app/?path=/docs/getting-started-intro--page)
+* [Formik](https://formik.org/docs/overview)
+
 É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores chromium bloqueiam por padrão requisições HTTP
 Após ter instalado o composer 2.5.7 e o PHP 8.2 e ter colocado
 o PHP nas variaveis de ambiente (caso seu sistema seja windows).
