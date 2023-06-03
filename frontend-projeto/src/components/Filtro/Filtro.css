@@ -2,3 +2,45 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.close-button {
+    text-align: right;
+}
+
+.close-button span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #ccc;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close-button span:hover {
+    background-color: #aaa;
+}
+
+.section__modal {
+    padding: 0 20px;
+}
+
+.sem-dados__modal {
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40%;
+}
+
+.filtro__botoes {
+    display: flex;
+}
+
+@media screen and (max-width: 805px) {
+    .filtro {
+        display: flex;
+        flex-direction: column;
+    }
+}

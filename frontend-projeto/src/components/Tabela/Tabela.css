@@ -2,8 +2,11 @@
     margin: 120px 0;
 }
 
-.tabela {
-    /* width: 80% !important; */
+.horario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 10px;
 }
 
 .icone-eh-dia {
@@ -13,4 +16,14 @@
 
 .section__botao__salvar {
     text-align: right;
+}
+
+@media screen and (max-width: 1245px){
+    .horario {
+        display: flex;
+    }
+
+    .horario span {
+        white-space: nowrap;
+    }
 }

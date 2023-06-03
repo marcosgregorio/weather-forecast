@@ -18,5 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/salvarCondicoesClimaticas', 'App\Http\Controllers\CondicoesClimaticas@salvarCondicoesClimaticas');
+Route::post('/salvarDados', 'App\Http\Controllers\CondicoesClimaticas@salvarDados');
 Route::get('/getDadosTabela/{localidade}', 'App\Http\Controllers\CondicoesClimaticas@getDadosTabela');
+Route::get('/getTodosClimas', 'App\Http\Controllers\CondicoesClimaticas@getTodosClimas');

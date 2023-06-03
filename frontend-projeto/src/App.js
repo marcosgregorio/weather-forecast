@@ -9,6 +9,7 @@ import Filtro from "./components/Filtro/Filtro";
 
 function App() {
 	const [dadosTabela, setDadosTabela] = useState([])
+	const [loading, setLoading] = useState(false)
 	
 	const changeTabela = (valor) => {
 		setDadosTabela([...dadosTabela, valor])
@@ -19,13 +20,13 @@ function App() {
 	}
 
 	return (
-		<div className="App">
+		<div id="AppElement" className="App">
 			<Header />
 			<div className="corpo-pagina">
 				<Formulario adicionarTemperaturaTabela={changeTabela}/>
-				<Filtro mudaConsultaTabela={changeTabelaConsulta}/>
+				<Filtro carregando={value => setLoading(value)}  mudaConsultaTabela={changeTabelaConsulta}/>
 				<Divisoria />
-				<Tabela dadosTabela={dadosTabela}/>
+				<Tabela carregandoTabela={loading} dadosTabela={dadosTabela}/>
 			</div>
 			<Footer />
 		</div>

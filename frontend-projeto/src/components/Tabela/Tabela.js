@@ -1,9 +1,12 @@
 import DataTable from "react-data-table-component"
 import React, { useState, useEffect } from 'react';
+import alert from '../../helper/alertHelper'
 import './Tabela.css'
 import Botao from "../Botao/Botao";
 const Tabela = (props) => {
 
+    const [loadingSalvando, setLoandingSalvando] = useState(false)
+    const apiBackEnd = "http://127.0.0.1:8000/api/"
     const climas = {
         "Clear sky": "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
         "Partly cloudy": "https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png",
@@ -42,7 +45,7 @@ const Tabela = (props) => {
             cell: row => {
                 return (
                     <div className="horario">
-                        {row.horario}
+                        <span>{row.horario}</span>
                         <img className="icone-eh-dia" src={ehDia[row.ehDia]} alt="Ícone" />
                     </div>
                 )
@@ -57,24 +60,52 @@ const Tabela = (props) => {
     }
 
     const salvarDadosTabela = () => {
-        
+        setLoandingSalvando(true)
+        const params = { ...props.dadosTabela }
+        fetch(`${apiBackEnd}salvarDados`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        }).then((res) => res.json())
+            .then((resposta) => {
+                const sucesso = resposta[0] == "sucesso"
+                if (sucesso) {
+                    exibeAlertaSucesso()
+                }
+            })
+            .finally(() => setLoandingSalvando(false))
     }
+
+    const exibeAlertaSucesso = () => {
+        let title, msg, icon, confirmButtonText = ''
+        title = 'Sucesso ao salvar os dados!'
+        msg = 'Parece que ocorreu tudo certo na hora de salvar os dados sobre o clima.'
+        icon = 'success'
+        confirmButtonText = 'OK'
+        alert(title, msg, icon, confirmButtonText)
+    }
+
+   
 
     return (
         <section className="section__tabela">
             <DataTable
+                progressPending={props.carregandoTabela}
                 className="tabela"
                 columns={columns}
                 data={props.dadosTabela}
+                noDataComponent="Nenhum dado disponível para amostrar :("
             >
             </DataTable>
             {
                 props.dadosTabela.length > 0 &&
-                    <div className="section__botao__salvar">
-                        <Botao clicado={salvarDadosTabela}>
-                            Salvar
-                        </Botao>
-                    </div>
+                <div className="section__botao__salvar">
+                    <Botao clicado={salvarDadosTabela}>
+                        Salvar
+                    </Botao>
+                </div>
             }
         </section>
     )

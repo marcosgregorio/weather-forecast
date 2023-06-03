@@ -1,8 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { useEffect, useState } from 'react';
 import './Formulario.css'
 import alert from '../../helper/alertHelper'
-import Swal from 'sweetalert2'
 import Schema from "../../Schema";
 
 const Formulario = (props) => {
@@ -16,10 +14,9 @@ const Formulario = (props) => {
         fetch(url)
             .then((responseApi) => responseApi.json())
             .then((json) => {
-                console.log(json)
                 const erroRequest = json.success == false
                 if (erroRequest) {
-                    exibeAlertaErro(params.query)
+                    exibeAlertaErroCidade(params.query)
                     return;
                 }
                 const horario = formataDataHora(json.location.localtime)
@@ -36,11 +33,11 @@ const Formulario = (props) => {
             }).catch()
     }
 
-    const exibeAlertaErro = (cidade) => {
+    const exibeAlertaErroCidade = (cidade) => {
         const msg = `Não foi encontrado dados para a cidade: ${cidade}`
         alert(msg)
     }
-   
+
     const formataDataHora = (dataIso) => {
         let dataAux = dataIso.split(" ")
         let dataDia = dataAux[0]
@@ -50,19 +47,33 @@ const Formulario = (props) => {
     }
 
     const onBlurCep = (evento, setFieldValue) => {
+        const input = document.getElementById('field-cep')
+        input.style.border = ''
         let cep = evento.target.value
         const regex = /[^0-9]/g
         cep = cep?.replace(regex, '');
 
-        if (cep?.length !== 8)
+        if (cep?.length !== 8) {
+            input.style.border = '1px solid red'
             return;
+        }
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
             .then((responseApi) => responseApi.json())
             .then((data) => {
+                if (data.erro) {
+                    exibeAlertaErroCep()
+                    return
+                }
                 setFieldValue('cidade', data.localidade)
-            })
+            }).catch(() => alert())
     }
 
+    const exibeAlertaErroCep = (cep) => {
+        let title, msg = ''
+        title = "CEP informado inválido"
+        msg = "Parece que não foi encontrado informações para o CEP: " + cep
+        alert(title, msg)
+    }
     return (
         <section className='section'>
             <Formik
@@ -81,6 +92,7 @@ const Formulario = (props) => {
                             <div className="field">
                                 <label htmlFor="cep"> CEP </label>
                                 <Field
+                                    id="field-cep"
                                     name="cep"
                                     type="text"
                                     onBlur={(ev) => onBlurCep(ev, setFieldValue)}
@@ -88,7 +100,7 @@ const Formulario = (props) => {
                                 <ErrorMessage name="cep" />
                             </div>
                             <div className="field">
-                                <label htmlFor="cidade"> CIDADE </label>
+                                <label htmlFor="cidade"> CIDADE* </label>
                                 <Field
                                     name="cidade"
                                     type="text"
