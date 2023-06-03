@@ -1,13 +1,12 @@
 import './InputSimple.css'
 
 const InputSimple = (props) => {
-
     const aoDigitado = (evento) => {
         props.aoAlterado(evento.target.value)
     }
 
     return (
-        <div className='input'>
+        <div title={props.titleInput} className='input'>
             <label>
                 {props.label}
             </label>

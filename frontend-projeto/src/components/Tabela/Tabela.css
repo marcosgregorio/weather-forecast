@@ -1,11 +1,9 @@
 .section__tabela {
-    display: flex;
-    justify-content: center;
     margin: 120px 0;
 }
 
 .tabela {
-    width: 80%;
+    /* width: 80% !important; */
 }
 
 .icone-eh-dia {
@@ -13,5 +11,6 @@
     height: 35px;
 }
 
-.horario {
+.section__botao__salvar {
+    text-align: right;
 }

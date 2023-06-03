@@ -1,21 +1,11 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Formulario.css'
+import alert from '../../helper/alertHelper'
+import Swal from 'sweetalert2'
 import Schema from "../../Schema";
 
 const Formulario = (props) => {
-    const climas = {
-        "Clear sky": 'https://ssl.gstatic.com/onebox/weather/64/sunny.png',
-        "Partly cloudy": 'https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png',
-        "Light rain": "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png",
-        "Moderate rain": "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png",
-        "Heavy rain": "https://ssl.gstatic.com/onebox/weather/64/rain_heavy.png"
-    }
-
-    const ehDia = {
-        "yes": "https://github.com/marcosgregorio/weather-forecast/blob/c42eb7b9a42eb4971fa7a8f42b586145339c0158/frontend-projeto/public/assets/sun.png",
-        "no": "https://cdn-icons-png.flaticon.com/128/581/581601.png"
-    }
 
     const buscarTemperatura = (values, actions) => {
         const params = {
@@ -26,31 +16,37 @@ const Formulario = (props) => {
         fetch(url)
             .then((responseApi) => responseApi.json())
             .then((json) => {
+                console.log(json)
+                const erroRequest = json.success == false
+                if (erroRequest) {
+                    exibeAlertaErro(params.query)
+                    return;
+                }
                 const horario = formataDataHora(json.location.localtime)
-                const iconeClima = decideIconeClima(json.current?.weather_descriptions[0])
                 const linhaTabela = {
                     localidade: json.location.name,
-                    iconeClima: iconeClima,
+                    iconeClima: json.current?.weather_descriptions[0],
                     temperatura: json.current.temperature + "°C",
                     velocidadeVento: json.current.wind_speed,
                     horario: horario,
-                    ehDia: ehDia[json.current.is_day],
+                    ehDia: json.current.is_day,
                 }
 
                 props.adicionarTemperaturaTabela(linhaTabela)
-            })
+            }).catch()
     }
 
+    const exibeAlertaErro = (cidade) => {
+        const msg = `Não foi encontrado dados para a cidade: ${cidade}`
+        alert(msg)
+    }
+   
     const formataDataHora = (dataIso) => {
         let dataAux = dataIso.split(" ")
         let dataDia = dataAux[0]
         let horario = dataAux[1]
         dataDia = dataDia.split("-").reverse().join('/')
         return `${dataDia} ${horario}`
-    }
-
-    const decideIconeClima = (keyClima) => {
-        return climas[keyClima] ? climas[keyClima] : climas["Clear sky"]
     }
 
     const onBlurCep = (evento, setFieldValue) => {
@@ -71,6 +67,7 @@ const Formulario = (props) => {
         <section className='section'>
             <Formik
                 validationSchema={Schema}
+                validateOnMount
                 onSubmit={buscarTemperatura}
                 initialValues={{
                     cep: '',

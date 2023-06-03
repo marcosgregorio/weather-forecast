@@ -3,18 +3,19 @@
 }
 
 .input label {
-    display:block;
-    margin-bottom: 24px;
-    font-weight: 500;
+    display: block;
+    margin-bottom: 16px;
+    font-weight: bold;
     font-size: 1.2em;
+    color: #333;
+    text-transform: uppercase;
 }
 
 .input input {
     background-color: white;
     box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.5);
-    width: 100%;
     border: none;
-    font-size: 24px;
-    padding: 16px;
+    font-size: 16px;
+    padding: 8px;
     box-sizing: border-box;
 }
