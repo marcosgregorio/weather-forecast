@@ -35,8 +35,9 @@ npm start
 * [Formik](https://formik.org/docs/overview)
 
 ### 📁 Pastas
-*As pastas do projeto front end foram separados em uma pasta de componentes e helper na src, uma pasta de assets dentro da public.
-*As pastas do projeto back end são o empastamento padrão de um projeto laravel.
+* As pastas do projeto front end foram separados em uma pasta de componentes e helper na src, uma pasta de assets dentro da public.
+
+* As pastas do projeto back end são o empastamento padrão de um projeto laravel.
 
 ### ⚙️ Instalando o backend
 É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores chromium bloqueiam por padrão requisições HTTP
