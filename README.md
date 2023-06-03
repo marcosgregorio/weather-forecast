@@ -23,7 +23,7 @@ Uma aplicação simples usando React, Laravel e um banco Sqlite.
 | :label: Tecnologias | React, Laravel, SweetAlert
 
 ### ⚙️ Configurando o projeto
-Para subir a aplicação front-end rodar o comando abaixo(lembre-se de utilizar a versão correta do NPM).
+ Para subir a aplicação front-end rodar o comando abaixo(lembre-se de utilizar a versão correta do NPM).
 ```bash
 npm install
 ```
@@ -37,22 +37,34 @@ npm start
 * [react-data-table-component](https://react-data-table-component.netlify.app/?path=/docs/getting-started-intro--page)
 * [Formik](https://formik.org/docs/overview)
 
+### ⚙️ Instalando o backend
 É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores chromium bloqueiam por padrão requisições HTTP
 Após ter instalado o composer 2.5.7 e o PHP 8.2 e ter colocado
 o PHP nas variaveis de ambiente (caso seu sistema seja windows).
 
-  -> instale o laravel usando o comando composer global require "laravel/installer"
-  -> Depois, apenas rode o comando composer install para instalar as dependencias do projeto.
-  -> Rode o comando php artisan serve e veja se conseguiu subir o servidor.
-  -> Rode o comando php artisan migrate e verifique se foi possivel estabelecer uma conexão
-    com o banco sqlite.
+   instale o laravel usando o comando: 
+  ```bash 
+  composer global require "laravel/installer"
+  ```
+   Depois, apenas rode o comando abaixo para instalar as dependencias do projeto.
+  ```bash 
+  composer install 
+  ``` 
+  Rode o comando abaixo e veja se conseguiu subir o servidor.
+  ```bash 
+  php artisan serve 
+  ```
+   Por fim, execut o comando a seguir e verifique se foi possivel estabelecer uma conexão com o banco sqlite.
+  ```bash
+  php artisan migrate
+  ```
 
-caso tenha problemas de conexão com o banco sqlite siga os seguintes passos:
+### ⚠️ caso tenha problemas de conexão com o banco sqlite siga os seguintes passos:
 
-  -> Copie o meu .env;
-  -> Deixa todas as variaveis DB_ comentadas exceto a DB_CONNECTION.
+  * Copie o meu .env;
+  * Deixa todas as variaveis DB_ comentadas exceto a DB_CONNECTION.
     A tem que ser DB_CONNECTION=sqlite.
-  -> Copie o arquivo o meu database.sqlite e deixe ele na pasta database
+  * Copie o arquivo o meu database.sqlite e deixe ele na pasta database
     e rode o comando PHP artisan migrate.
 
 ## 
