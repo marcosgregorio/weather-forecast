@@ -72,5 +72,20 @@ o PHP nas variaveis de ambiente (caso seu sistema seja windows).
 
 ## Condições climáticas
 É possivel procurar as condições climáticas pela cidade usando apena o input de cidade e clicando em buscar
-blob:
-![Nome da descrição da imagem](https://web.whatsapp.com/c973d801-4771-4b2a-b234-3da6b94bc0ca)
+
+![ezgif com-video-to-gif(1)](https://github.com/marcosgregorio/weather-forecast/assets/78617642/0819d243-0d16-4321-a535-f11b8bc51248)
+
+## Salvar os dados
+
+![ezgif com-video-to-gif(2)](https://github.com/marcosgregorio/weather-forecast/assets/78617642/aeff967d-4303-421e-89d6-39b0d6af8ef2)
+
+## Consultar dados salvos
+
+![ezgif com-video-to-gif(3)](https://github.com/marcosgregorio/weather-forecast/assets/78617642/487afcfa-a855-4c88-92ab-1770b8921ca4)
+
+## Comparar temperaturas 
+
+![ezgif com-video-to-gif(4)](https://github.com/marcosgregorio/weather-forecast/assets/78617642/18c1a39e-f4ec-4463-af96-a9ef1a382569)
+
+## Layout responsivo
+![ezgif com-video-to-gif](https://github.com/marcosgregorio/weather-forecast/assets/78617642/114c295d-1b46-402f-a8ce-cd7ccf8af008)
