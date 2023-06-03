@@ -61,10 +61,15 @@ o PHP nas variaveis de ambiente (caso seu sistema seja windows).
 
 ### ⚠️ caso tenha problemas de conexão com o banco sqlite siga os seguintes passos:
 
-  * Copie o meu .env;
+  * Copie o meu .env dentro da pasta ```arquivos-backup```;
   * Deixa todas as variaveis DB_ comentadas exceto a DB_CONNECTION.
     A tem que ser DB_CONNECTION=sqlite.
-  * Copie o arquivo o meu database.sqlite e deixe ele na pasta database
-    e rode o comando PHP artisan migrate.
+  * Copie o arquivo o meu database.sqlite (também dentro da pasta ```arquivos-backup```) e deixe ele na pasta database
+    e rode o comando ```php artisan migrate```.
 
-## 
+
+### 💡 Funcionalidades
+
+## Condições climáticas
+É possivel procurar as condições climáticas pela cidade usando apena o input de cidade e clicando em buscar
+
