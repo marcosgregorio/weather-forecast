@@ -34,6 +34,10 @@ npm start
 * [react-data-table-component](https://react-data-table-component.netlify.app/?path=/docs/getting-started-intro--page)
 * [Formik](https://formik.org/docs/overview)
 
+### 📁 Pastas
+*As pastas do projeto front end foram separados em uma pasta de componentes e helper na src, uma pasta de assets dentro da public.
+*As pastas do projeto back end são o empastamento padrão de um projeto laravel.
+
 ### ⚙️ Instalando o backend
 É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores chromium bloqueiam por padrão requisições HTTP
 Após ter instalado o composer 2.5.7 e o PHP 8.2 e ter colocado
