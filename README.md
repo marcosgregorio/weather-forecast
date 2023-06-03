@@ -14,7 +14,7 @@ Uma aplicação simples usando React, Laravel e um banco Sqlite.
 | :placard: Informações  |     |
 | -------------  | --- |
 | :sparkles: Nome        | Weather Forecast
-| :label: Tecnologias | React + Laravel
+| :label: Tecnologias | React, Laravel, SweetAlert
 
 
 ## 
