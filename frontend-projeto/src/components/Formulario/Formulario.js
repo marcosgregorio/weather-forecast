@@ -2,10 +2,13 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import './Formulario.css'
 import alert from '../../helper/alertHelper'
 import Schema from "../../Schema";
+import { useState } from "react";
 
 const Formulario = (props) => {
+    const [carregando, setCarregando] = useState(false)
 
     const buscarTemperatura = (values, actions) => {
+        setCarregando(true)
         const params = {
             access_key: '54c7a3bcaccb0a761d12f9899e2c71d9',
             query: values.cidade
@@ -31,6 +34,7 @@ const Formulario = (props) => {
 
                 props.adicionarTemperaturaTabela(linhaTabela)
             }).catch()
+            .finally(() => setCarregando(false))
     }
 
     const exibeAlertaErroCidade = (cidade) => {
@@ -47,6 +51,7 @@ const Formulario = (props) => {
     }
 
     const onBlurCep = (evento, setFieldValue) => {
+        setCarregando(true)
         const input = document.getElementById('field-cep')
         input.style.border = ''
         let cep = evento.target.value
@@ -55,17 +60,19 @@ const Formulario = (props) => {
 
         if (cep?.length !== 8) {
             input.style.border = '1px solid red'
+            setCarregando(false)
             return;
         }
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
             .then((responseApi) => responseApi.json())
             .then((data) => {
                 if (data.erro) {
-                    exibeAlertaErroCep()
+                    exibeAlertaErroCep(cep)
                     return
                 }
                 setFieldValue('cidade', data.localidade)
             }).catch(() => alert())
+            .finally(() => setCarregando(false))
     }
 
     const exibeAlertaErroCep = (cep) => {
@@ -108,7 +115,7 @@ const Formulario = (props) => {
                                 <ErrorMessage name="cep" />
                             </div>
                             <div className="botao">
-                                <button type="submit" disabled={!isValid}> Buscar </button>
+                                <button type="submit" disabled={!isValid || carregando}> Buscar </button>
                             </div>
                         </div>
                     </Form>
