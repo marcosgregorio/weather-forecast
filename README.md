@@ -15,12 +15,10 @@
 Uma aplicação que busca os dados climáticos de uma determinada
 cidade utilizando a api da https://weatherstack.com. 
 
-Uma aplicação simples usando React, Laravel e um banco Sqlite.
-
 | :placard: Informações  |     |
 | -------------  | --- |
 | :sparkles: Nome        | Weather Forecast
-| :label: Tecnologias | React, Laravel, SweetAlert
+| :label: Tecnologias | React, Laravel, SweetAlert, Sqlite
 
 ### ⚙️ Configurando o projeto
  Para subir a aplicação front-end rodar o comando abaixo(lembre-se de utilizar a versão correta do NPM).
