@@ -40,7 +40,8 @@ npm start
 * As pastas do projeto back end são o empastamento padrão de um projeto laravel.
 
 ### ⚙️ Instalando o backend
-É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores chromium bloqueiam por padrão requisições HTTP
+É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores Chromium bloqueiam por padrão requisições HTTP.
+
 Após ter instalado o composer 2.5.7 e o PHP 8.2 e ter colocado
 o PHP nas variaveis de ambiente (caso seu sistema seja windows).
 
