@@ -20,6 +20,8 @@ cidade utilizando a api da https://weatherstack.com.
 | :label: Tecnologias | React, Laravel, SweetAlert, Sqlite
 
 ### ⚙️ Configurando o projeto
+ É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores Chromium bloqueiam por padrão requisições HTTP.
+ 
  Para subir a aplicação front-end rodar o comando abaixo(lembre-se de utilizar a versão correta do NPM).
 ```bash
 npm install
@@ -40,7 +42,7 @@ npm start
 * As pastas do projeto back end são o empastamento padrão de um projeto laravel.
 
 ### ⚙️ Instalando o backend
-É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores Chromium bloqueiam por padrão requisições HTTP.
+
 
 Após ter instalado o composer 2.5.7 e o PHP 8.2 e ter colocado
 o PHP nas variaveis de ambiente (caso seu sistema seja windows).
@@ -52,24 +54,23 @@ o PHP nas variaveis de ambiente (caso seu sistema seja windows).
    Depois, apenas rode o comando abaixo para instalar as dependencias do projeto.
   ```bash 
   composer install 
-  ``` 
-  Rode o comando abaixo e veja se conseguiu subir o servidor.
-  ```bash 
-  php artisan serve 
   ```
-   Por fim, execut o comando a seguir e verifique se foi possivel estabelecer uma conexão com o banco sqlite.
+  Execute o comando a seguir e verifique se foi possivel estabelecer uma conexão com o banco sqlite.
   ```bash
   php artisan migrate
+  ```
+  Por fim, rode o comando abaixo e veja se conseguiu subir o servidor.
+  ```bash 
+  php artisan serve 
   ```
 
 ### ⚠️ caso tenha problemas de conexão com o banco Sqlite siga os seguintes passos:
 
   * Copie o meu .env dentro da pasta ```arquivos-backup```;
   * Deixa todas as variaveis DB_ comentadas exceto a DB_CONNECTION.
-    A tem que ser DB_CONNECTION=sqlite.
-  * Copie o arquivo o meu database.sqlite (também dentro da pasta ```arquivos-backup```) e deixe ele na pasta database
-    e rode o comando ```php artisan migrate```.
-
+    Deixe a como DB_CONNECTION=sqlite.
+  * Copie o meu arquivo database.sqlite (também dentro da pasta ```arquivos-backup```) e deixe ele na pasta database
+    e rode o comando ```php artisan migrate``` e verifique se foi possivel rodar as migrações.
 
 ### 💡 Funcionalidades
 
