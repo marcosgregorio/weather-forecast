@@ -19,6 +19,8 @@ cidade utilizando a api da https://weatherstack.com.
 | :sparkles: Nome        | Weather Forecast
 | :label: Tecnologias | React, Laravel, SweetAlert, Sqlite
 
+![image](https://github.com/marcosgregorio/weather-forecast/assets/78617642/f84833cd-01c3-4534-865d-33516cf7aba3#vitrinedev)
+
 ### ⚙️ Configurando o projeto
  É recomendado utilizar um navegador que permita requisições HTTP por padrão, como o Firefox. Navegadores Chromium bloqueiam por padrão requisições HTTP.
  
